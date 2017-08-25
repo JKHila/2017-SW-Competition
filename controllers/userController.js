@@ -14,6 +14,8 @@ exports.sign_up = function(req,res){
                         res.send('<script>alert("점수 등록에 실패했습니다.");</script>')
                     }
                 })
+            }else{
+                res.send('cancel');
             }
         }catch(err){
             console.log(err);

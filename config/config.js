@@ -1,9 +1,16 @@
-var generic_pool = require('generic-pool');
 var mysql = require('mysql');
 
-var config = {};
+exports.pool  = mysql.createPool({
+  connectionLimit : 10,
+  host            : 'localhost',
+  user            : 'root',
+  password        : 'root',
+  port            : '3306',
+  database: 'testDB'
+});
 
-config.dbPool = generic_pool.createPool({
+
+/*config.dbPool = generic_pool.createPool({
     name: 'mysql',
     create: function(callback){
         var config = {
@@ -31,4 +38,4 @@ config.dbPool.drain().then(function() {
     config.dbPool.clear();
 });
 
-module.exports = config
+module.exports = config*/
