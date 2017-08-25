@@ -15,13 +15,27 @@ exports.sign_up = function(req,res){
                     }
                 })
             }else{
-                res.send('cancel');
+                res.send('중복된 아이디');
             }
         }catch(err){
             console.log(err);
         }
     });
 }
-exports.test = function(req,res){
-    res.send('sss');
+exports.login = function(req,res){
+    var id = req.query.reqId;
+    var pw = req.query.reqPw;
+    data = [id,pw];
+    db.login(data,function(err,results){
+        try{
+            console.log(results);
+            if(results[0].cnt == 1){
+                res.send('login success');
+            }else{
+                res.send('login failed');
+            }
+        }catch(err){
+            console.log(err);
+        }
+    });
 }

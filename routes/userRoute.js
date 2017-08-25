@@ -5,8 +5,8 @@ var index = express.Router();
 index.post('/signup',function(req,res){
     userController.sign_up(req,res);
 });
-index.get('/test',function(req,res){
-    userController.test(req,res);
+index.get('/login',function(req,res){
+    userController.login(req,res);
 });
 
 module.exports = index;
