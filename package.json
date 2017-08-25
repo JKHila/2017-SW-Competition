@@ -5,12 +5,14 @@
   "main": "app.js",
   "dependencies": {
     "express": "^4.15.4",
+    "generic-pool": "^3.1.7",
+    "mysql": "^2.14.1",
     "nodemon": "^1.11.0"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon app.js"
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC"
