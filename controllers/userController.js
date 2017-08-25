@@ -9,13 +9,13 @@ exports.sign_up = function(req,res){
                 data = [id,pw];
                 db.registId(data,function(err,result){
                     if(result.affectedRows == 1){
-                        res.send('<script>alert("[신규 유저] 점수 등록을 하였습니다."); </script>')
+                        res.send('sign up success')
                     }else{
-                        res.send('<script>alert("점수 등록에 실패했습니다.");</script>')
+                        res.send('sign up failed')
                     }
                 })
             }else{
-                res.send('중복된 아이디');
+                res.send('overlapped id');
             }
         }catch(err){
             console.log(err);
