@@ -89,6 +89,7 @@ exports.login = function(req,res){
         try{
             console.log(results);
             if(results[0].cnt == 1){
+                req.session.user_id = id;
                 res.send('login success');
             }else{
                 res.send('login failed');
