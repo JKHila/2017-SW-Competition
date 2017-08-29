@@ -60,8 +60,8 @@ function fbSignup(fbUserEmail,fbAccessToken,next){
     });
 }
 exports.sign_up = function(req,res){
-    var id = req.query.reqId;
-    var pw = req.query.reqPw;
+    var id = req.body.reqId;
+    var pw = req.body.reqPw;
     db.checkId(id,function(err,results){
         try{
             if(results[0].cnt == 0){
@@ -82,8 +82,8 @@ exports.sign_up = function(req,res){
     });
 }
 exports.login = function(req,res){
-    var id = req.query.reqId;
-    var pw = req.query.reqPw;
+    var id = req.body.reqId;
+    var pw = req.body.reqPw;
     data = [id,pw];
     db.login(data,function(err,results){
         try{
