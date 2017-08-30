@@ -31,6 +31,9 @@ exports.login = function(data,callback){
             conn.query('SELECT COUNT(id) AS cnt FROM user WHERE id=? and pw=?',data, function(err,rows) {
                 conn.release();
                 callback(err,rows);
+                if(rows[0].cnt == 1){
+                    conn.query('UPDATE user SET userCount = userCount + 1 WHERE id = ?',data[0]);
+                }
             });
         });
     }catch(err){
