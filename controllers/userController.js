@@ -1,5 +1,25 @@
 var db = require('../models/userDB.js');
 
+exports.inputBasic = function(req,res){
+    var id = req.body.user_id;    
+    var gender = req.body.gender;
+    var age = req.body.age;
+    var tall = req.body.tall;
+    var weight = req.body.weight;
+    var fat = req.body.fat;
+    try {
+        data = [id, gender, age, tall, weight, fat];
+        db.setBasicData(data, function (err, result) {
+            if(result.affectedRows == 1){
+                res.send("setBasicData");
+            }else{
+                res.send("failBasicData");                
+            }
+        });
+    }catch(err) {
+        console.log(err);
+    }
+}
 
 exports.facebook_login = function(req,res,next){
     var fbUserEmail = req.body.fbUserEmail;
@@ -72,7 +92,7 @@ exports.sign_up = function(req,res){
                     }else{
                         res.send('sign up failed')
                     }
-                })
+                });
             }else{
                 res.send('overlapped id');
             }

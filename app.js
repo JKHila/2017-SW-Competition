@@ -17,7 +17,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
-app.use('/',user);
+
+app.use('/',user); //쿠키,세션 뒤에 있어야함.
 
 app.listen(8888,function(){
     console.log("server start...");

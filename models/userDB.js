@@ -1,5 +1,18 @@
 var config = require('../config/config')
 
+exports.setBasicData = function(data,callback){
+    console.log(data);
+    try{
+        config.pool.getConnection(function(err,conn){
+            conn.query('INSERT INTO SWG2017.cn_body_info (user_id, gender, age, tall, weight, basic_metabolism) VALUES(?, ?, ?, ?, ?, ?)',data, function(err,rows) {
+                callback(err,rows);                
+                conn.release();
+            });
+        });
+    }catch(err){
+        console.log('error:',err);
+    }
+};
 exports.checkId = function(id,callback){
     try{
         config.pool.getConnection(function(err,conn){

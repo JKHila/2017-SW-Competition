@@ -12,4 +12,8 @@ index.post('/login/facebook',function(req,res,next){
     userController.facebook_login(req,res,next);
 });
 
+index.post('/input/basic',function(req,res){
+    userController.inputBasic(req,res);
+});
+
 module.exports = index;
